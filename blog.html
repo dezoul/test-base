@@ -1,0 +1,72 @@
+---
+layout: default
+title: Blog Page 
+seo:
+  title:
+  description:
+  social_image:
+  twitter_card:
+  keywords:
+  hide-from-google: false
+---
+
+<!------------------------ Split blog loop (part 1) ------------------------>
+<section class="p-5p">
+
+    <div class="max-w-screen-xl mx-auto grid md:grid-cols-3 grid-cols-5">
+
+    <div class="md:col-span-full p-2 text-center mb-4">
+        <h2> Latest Posts </h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, quaerat necessitatibus? Praesentium fugit ex neque magni, possimus, iste itaque voluptatem id doloremque voluptas consequatur dolor cumque! Dolores possimus laboriosam adipisci.</p>
+    </div>
+
+        {% for post in site.posts limit:3 %}
+
+            {% include post-loop-item-square.html %}
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+
+<!------------------------ CTA Banner  ------------------------>
+<section class="bg-featured  p-5p text-center max-w-screen-xl mx-auto"> 
+
+    <div class="max-w-screen-lg mx-auto">
+        <h2> A catchy heading </h2>
+        <p> This is a call-to-action to drive traffic somewhere important </p>
+        <a href="#" class="button"> Let's do this </a>
+    </div>
+
+</section> 
+
+
+<!------------------------ Split blog loop (part 2) ------------------------>
+<section class="p-5p">
+
+    <div class="max-w-screen-xl mx-auto grid grid-cols-2 md:grid-cols-4">
+
+        {% for post in site.posts limit:12 offset:3 %}
+
+                {% include post-loop-item-square.html %}
+
+        {% endfor %}
+
+    </div>
+
+
+    <!-- This checks if there are more than 15 blog posts, and if there are shows a link to the full blog archive -->
+
+    {% assign post_count = site.posts | size %}
+    
+    {% if post_count > 15 %}
+        <div class="text-center p-5p">
+            <a class="button" href="/blog-archive"> See More </a>
+        </div>
+       
+    {% endif %}
+
+</section>
+

@@ -1,0 +1,26 @@
+
+
+<div class="post-item p-4">
+    <a href="{{ post.url }}" class="bg-image aspect-square" style="background-image:url( '{{ post.featured_image }}' );"></a>
+    <div class="pt-5p-1 pb">
+        
+        {% for item in post.categories %}
+            <span class="tag"> {{item}} </span>
+        {% endfor %}
+
+        <h2 class="mt-4"> {{ post.title }} </h2>
+        <p> {{ post.description }} </p>
+        <a href="{{ post.url }}" class="subtle-button"> Read More </a>
+
+    </div>
+</div>
+
+
+<!-- Want the categories to link to their archive page? Replace the span with a link like this. 
+
+{% for item in post.categories %}
+    <span class="tag"> {{item}} </span>
+{% endfor %}
+
+
+-->

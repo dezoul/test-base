@@ -1,0 +1,20 @@
+<section class="p-5p">
+
+    <div class="max-w-screen-xl mx-auto grid md:grid-cols-3">
+
+        <div class="md:col-span-full p-2 text-center mb-4">
+
+            <h2> {{ page.title }}</h2>
+            {{ page.description_html }}
+
+        </div>
+
+            {% for post in site.categories[page.category] limit:12 %}
+
+                {% include post-loop-item-square.html %}
+
+            {% endfor %}
+
+    </div>
+
+</section>
